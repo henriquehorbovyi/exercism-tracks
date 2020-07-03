@@ -1,13 +1,15 @@
 import java.time.LocalDate
 import java.time.LocalDateTime
 
-object Gigasecond {
+class Gigasecond {
 
-    operator fun invoke(date: LocalDate): LocalDateTime {
-        return date.atStartOfDay().plusSeconds(1_000_000_000)
+    var date: LocalDateTime
+
+    constructor(date: LocalDate) {
+        this.date = date.atStartOfDay().plusSeconds(1_000_000_000)
     }
 
-    operator fun invoke(date: LocalDateTime): LocalDateTime {
-        return date.plusSeconds(1_000_000_000)
+    constructor(dateTime: LocalDateTime) {
+        this.date = dateTime.plusSeconds(1_000_000_000)
     }
 }
