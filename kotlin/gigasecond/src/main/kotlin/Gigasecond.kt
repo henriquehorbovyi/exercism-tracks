@@ -1,15 +1,11 @@
 import java.time.LocalDate
 import java.time.LocalDateTime
 
-class Gigasecond {
+class Gigasecond(localDateTime: LocalDateTime)  {
 
-    var date: LocalDateTime
+    var date: LocalDateTime = localDateTime.plusSeconds(1_000_000_000)
 
-    constructor(date: LocalDate) {
-        this.date = date.atStartOfDay().plusSeconds(1_000_000_000)
-    }
-
-    constructor(dateTime: LocalDateTime) {
-        this.date = dateTime.plusSeconds(1_000_000_000)
+    constructor(dateTime: LocalDate) {
+        date = dateTime.atStartOfDay().plusSeconds(1_000_000_000)
     }
 }
