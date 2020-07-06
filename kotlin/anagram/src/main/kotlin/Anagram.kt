@@ -1,3 +1,5 @@
+
+// TODO: STILL INCOMPLETE
 class Anagram(private val source: String) {
 
     private val isSourceAnagram: (String) -> Boolean = { word ->
