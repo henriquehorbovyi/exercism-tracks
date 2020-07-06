@@ -1,16 +1,21 @@
-
-// TODO: STILL INCOMPLETE
-class Anagram(private val source: String) {
-
-    private val isSourceAnagram: (String) -> Boolean = { word ->
-        source.count() == word.count() &&
-            !source.equals(word, ignoreCase = true) &&
-            word.matches("([$source])\\w+".toRegex(RegexOption.IGNORE_CASE))
-    }
+class Anagram(private val word: String) {
 
     fun match(anagrams: Collection<String>): Set<String> {
         return anagrams
-            .filter { word -> isSourceAnagram(word) }
+            .filter(isAnagram)
             .toSet()
+    }
+
+    private val isAnagram: (String) -> Boolean = {
+        if (word.length != it.length || word.equals(it, ignoreCase = true))
+            false
+        else
+            word
+                .toLowerCase()
+                .toCharArray()
+                .sorted() == it
+                .toLowerCase()
+                .toCharArray()
+                .sorted()
     }
 }
