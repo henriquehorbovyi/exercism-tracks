@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-// Square is bla
+// Square returns the amount of grains for a given chessboard square position
 func Square(number int) (uint64, error) {
 	if number <= 0 || number > 64 {
 		return 0, errors.New("Not valid position")
@@ -14,7 +14,7 @@ func Square(number int) (uint64, error) {
 	return uint64(r), nil
 }
 
-// Total is bla
+// Total sums the amount of all grains in the chessboard
 func Total() uint64 {
 	total := 0
 	for n := 1; n <= 64; n++ {
